@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+Rock Paper Scissors
+{% endblock %}
+
+{% block content %}
+
+<div class="hero">
+
+<h1>Rock, Paper, Scissors</h1>
+
+<form method="POST">
+
+    <label>
+        <input type="radio" name="choice" value="Rock" required>
+        Rock
+    </label>
+
+    <label>
+        <input type="radio" name="choice" value="Paper">
+        Paper
+    </label>
+
+    <label>
+        <input type="radio" name="choice" value="Scissors">
+        Scissors
+    </label>
+
+    <br><br>
+
+    <button class="button" type="submit">
+        Play
+    </button>
+
+</form>
+
+{% if result %}
+
+<hr>
+
+<h2>{{ result }}</h2>
+
+<p>You chose: {{ player }}</p>
+
+<p>Computer chose: {{ computer }}</p>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
