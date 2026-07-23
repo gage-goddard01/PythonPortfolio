@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import random
+from apps.password_generator import generate_password
 
 app = Flask(__name__)
 
@@ -18,6 +19,22 @@ def about():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
+@app.route("/password_generator", methods=["GET", "POST"])
+def password_generator():
+    generated_password = None
+
+    if request.method == "POST":
+        password_length = request.form["password_length"]
+        password_length = int(password_length)
+        generated_password= generate_password(password_length)
+
+
+    return render_template(
+        "password_generator.html",
+        generated_password = generated_password
+    )
+
 
 @app.route("/rps", methods=["GET", "POST"])
 def rps():

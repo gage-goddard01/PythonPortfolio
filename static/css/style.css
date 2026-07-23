@@ -92,3 +92,8 @@ nav a:hover{
 .card h2{
     color:#232F3E;
 }
+
+.projects-row{
+    display: flex;
+    gap: 20px;
+}
