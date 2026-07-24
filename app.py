@@ -12,14 +12,6 @@ def home():
 def projects():
     return render_template("projects.html")
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-
 @app.route("/password_generator", methods=["GET", "POST"])
 def password_generator():
     generated_password = None
@@ -34,7 +26,6 @@ def password_generator():
         "password_generator.html",
         generated_password = generated_password
     )
-
 
 @app.route("/rps", methods=["GET", "POST"])
 def rps():
@@ -70,6 +61,18 @@ def rps():
         player=player,
         computer=computer,
     )
+
+@app.route("/cybersecurity")
+def cybersecurity():
+    return render_template("cybersecurity.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

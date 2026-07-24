@@ -93,6 +93,11 @@ nav a:hover{
     color:#232F3E;
 }
 
+.card-link{
+    color: inherit;
+    text-decoration: none
+}
+
 .projects-row{
     display: flex;
     gap: 20px;
