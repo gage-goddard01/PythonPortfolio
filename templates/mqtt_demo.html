@@ -1,0 +1,456 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Interactive MQTT Demo | Gage
+{% endblock %}
+
+
+{% block content %}
+
+<section class="section mqtt-demo">
+
+    <div class="project-container">
+
+        <a
+            href="{{ url_for('externship') }}"
+            class="back-link"
+        >
+            ← Back to Externship
+        </a>
+
+
+        <span class="eyebrow">
+            INTERACTIVE DEMO
+        </span>
+
+        <h1>
+            Hydroficient MQTT Pipeline
+        </h1>
+
+        <p class="project-lead">
+            Inspect the original Python source code,
+            then run a short-lived MQTT demonstration
+            using a real Mosquitto broker.
+        </p>
+
+
+        <div class="mqtt-source-tabs">
+
+            <button
+                type="button"
+                class="mqtt-source-tab active"
+                data-source="publisher"
+            >
+                Publisher
+            </button>
+
+            <button
+                type="button"
+                class="mqtt-source-tab"
+                data-source="subscriber"
+            >
+                Subscriber
+            </button>
+
+        </div>
+
+
+        <div
+            class="mqtt-source-panel"
+            data-source-panel="publisher"
+        >
+            <div class="mqtt-code-heading">
+                module2_sensor.py
+            </div>
+
+            <pre><code>{{ publisher_source }}</code></pre>
+        </div>
+
+
+        <div
+            class="mqtt-source-panel"
+            data-source-panel="subscriber"
+            hidden
+        >
+            <div class="mqtt-code-heading">
+                dashboard_subscriber.py
+            </div>
+
+            <pre><code>{{ subscriber_source }}</code></pre>
+        </div>
+
+
+        <div class="mqtt-demo-actions">
+
+            <button
+                type="button"
+                id="mqtt-run-button"
+                class="button"
+            >
+                Run MQTT Demo
+            </button>
+
+            <button
+                type="button"
+                id="mqtt-reset-button"
+                class="button button-secondary"
+            >
+                Clear Terminals
+            </button>
+
+            <span
+                id="mqtt-demo-status"
+                class="mqtt-demo-status"
+                aria-live="polite"
+            >
+                Ready.
+            </span>
+
+        </div>
+
+
+        <div class="mqtt-flow">
+
+            <div class="mqtt-terminal">
+
+                <div class="mqtt-terminal-heading">
+                    Publisher
+                </div>
+
+                <pre id="mqtt-publisher-output"></pre>
+
+            </div>
+
+
+            <div class="mqtt-flow-arrow">
+                →
+            </div>
+
+
+            <div class="mqtt-terminal">
+
+                <div class="mqtt-terminal-heading">
+                    Mosquitto Broker
+                </div>
+
+                <pre id="mqtt-broker-output"></pre>
+
+            </div>
+
+
+            <div class="mqtt-flow-arrow">
+                →
+            </div>
+
+
+            <div class="mqtt-terminal">
+
+                <div class="mqtt-terminal-heading">
+                    Subscriber
+                </div>
+
+                <pre id="mqtt-subscriber-output"></pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+(function () {
+
+    const sourceTabs =
+        document.querySelectorAll(
+            ".mqtt-source-tab"
+        );
+
+    const sourcePanels =
+        document.querySelectorAll(
+            ".mqtt-source-panel"
+        );
+
+    const runButton =
+        document.getElementById(
+            "mqtt-run-button"
+        );
+
+    const resetButton =
+        document.getElementById(
+            "mqtt-reset-button"
+        );
+
+    const status =
+        document.getElementById(
+            "mqtt-demo-status"
+        );
+
+    const outputs = {
+        publisher:
+            document.getElementById(
+                "mqtt-publisher-output"
+            ),
+
+        broker:
+            document.getElementById(
+                "mqtt-broker-output"
+            ),
+
+        subscriber:
+            document.getElementById(
+                "mqtt-subscriber-output"
+            )
+    };
+
+
+    function clearOutputs() {
+
+        Object.values(outputs)
+            .forEach(function (output) {
+                output.textContent = "";
+            });
+
+    }
+
+
+    function appendOutput(
+        source,
+        message
+    ) {
+
+        const output =
+            outputs[source];
+
+        if (!output) {
+            return;
+        }
+
+        output.textContent +=
+            message + "\n";
+
+        output.scrollTop =
+            output.scrollHeight;
+
+    }
+
+
+    sourceTabs.forEach(
+        function (tab) {
+
+            tab.addEventListener(
+                "click",
+                function () {
+
+                    const selected =
+                        tab.dataset.source;
+
+                    sourceTabs.forEach(
+                        function (otherTab) {
+
+                            otherTab.classList
+                                .toggle(
+                                    "active",
+                                    otherTab === tab
+                                );
+
+                        }
+                    );
+
+
+                    sourcePanels.forEach(
+                        function (panel) {
+
+                            panel.hidden =
+                                panel.dataset
+                                    .sourcePanel
+                                !== selected;
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    resetButton.addEventListener(
+        "click",
+        function () {
+
+            clearOutputs();
+
+            status.textContent =
+                "Ready.";
+
+        }
+    );
+
+
+    runButton.addEventListener(
+        "click",
+        async function () {
+
+            clearOutputs();
+
+            runButton.disabled = true;
+
+            status.textContent =
+                "Starting MQTT demo...";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "{{ url_for('mqtt_demo_run') }}",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Accept":
+                                    "application/x-ndjson"
+                            }
+                        }
+                    );
+
+
+                if (
+                    !response.ok
+                    || !response.body
+                ) {
+
+                    throw new Error(
+                        "Streaming response "
+                        + "was unavailable."
+                    );
+
+                }
+
+
+                const reader =
+                    response.body.getReader();
+
+                const decoder =
+                    new TextDecoder();
+
+                let buffer = "";
+
+
+                while (true) {
+
+                    const result =
+                        await reader.read();
+
+                    buffer +=
+                        decoder.decode(
+                            result.value
+                                || new Uint8Array(),
+                            {
+                                stream:
+                                    !result.done
+                            }
+                        );
+
+
+                    const lines =
+                        buffer.split("\n");
+
+                    buffer =
+                        lines.pop() || "";
+
+
+                    lines.forEach(
+                        function (line) {
+
+                            if (!line.trim()) {
+                                return;
+                            }
+
+                            const event =
+                                JSON.parse(line);
+
+
+                            if (
+                                event.type
+                                === "log"
+                            ) {
+
+                                appendOutput(
+                                    event.source,
+                                    event.message
+                                );
+
+                            }
+
+
+                            if (
+                                event.type
+                                === "status"
+                            ) {
+
+                                status.textContent =
+                                    event.message;
+
+                            }
+
+
+                            if (
+                                event.type
+                                === "error"
+                            ) {
+
+                                status.textContent =
+                                    event.message;
+
+                            }
+
+
+                            if (
+                                event.type
+                                === "done"
+                            ) {
+
+                                status.textContent =
+                                    event.message;
+
+                            }
+
+                        }
+                    );
+
+
+                    if (result.done) {
+                        break;
+                    }
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                status.textContent =
+                    "Unable to run the MQTT demo.";
+
+            }
+
+            finally {
+
+                runButton.disabled = false;
+
+            }
+
+        }
+    );
+
+})();
+</script>
+
+{% endblock %}

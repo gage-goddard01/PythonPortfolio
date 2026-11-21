@@ -1,43 +1,580 @@
 {% extends "base.html" %}
 
 {% block title %}
-Home | Gage Goddard
+Gage Goddard | IT Professional
 {% endblock %}
+
 
 {% block content %}
 
-<section class="hero">
 
-    <h1>DevOps and Networking Portfolio</h1>
+<!-- =========================
+     HOME
+========================= -->
 
-    <p>
-        Welcome! I'm Gage Goddard. This portfolio showcases my Python applications,
-        AWS cloud projects, and cybersecurity work.
-    </p>
+<section id="home" class="hero">
 
-    <a href="/projects" class="button">
-        View My Projects
-    </a>
+    <div class="page-container hero-content">
+
+        <div class="eyebrow">
+            Cybersecurity • IT • Hardware
+        </div>
+
+        <h1>
+            IT Professional
+        </h1>
+
+        <p class="hero-description">
+            I build, troubleshoot, secure, and document technology.
+            My 
+            experience spans hardware repair, networking,
+            cybersecurity labs, Python development, and IoT security.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#work" class="button button-primary">
+                View my work
+            </a>
+
+            <a href="#about" class="button button-secondary">
+                About me
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="hero-technology-panel">
+
+    <div class="carousel-heading">
+        Technologies &amp; Platforms
+    </div>
+
+    <div class="hero-slideshow"
+         aria-label="Technologies and platforms I have experience with">
+
+
+        <!-- Android -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Mobile Operating System
+                </span>
+
+                <h3>Android</h3>
+
+                <p class="tech-description">
+                    Imaging • Firmware Updates
+                </p>
+
+            </div>
+        </div>
+
+        <!-- AWS -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Server Administration
+                </span>
+
+                <h3>AWS</h3>
+
+                <p class="tech-description">
+                    Viritual Networking • Cybersecurity
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- Flask -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Web Development
+                </span>
+
+                <h3>Flask</h3>
+
+                <p class="tech-description">
+                    Configuration • Routing
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- HTML -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Web Development
+                </span>
+
+                <h3>HTML</h3>
+
+                <p class="tech-description">
+                    Design • CSS
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- Linux -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Operating System
+                </span>
+
+                <h3>Linux</h3>
+
+                <p class="tech-description">
+                    Server Administration • Troubleshooting
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- macOS -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Operating System
+                </span>
+
+                <h3>macOS</h3>
+
+                <p class="tech-description">
+                    Code • Design • Development
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- Microsoft Office -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Business Applications
+                </span>
+
+                <h3>Microsoft Office</h3>
+
+                <p class="tech-description">
+                    Excel • Word • PowerPoint
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- Dynamics 365 -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    CRM &amp; Business Systems
+                </span>
+
+                <h3>Microsoft Dynamics 365</h3>
+
+                <p class="tech-description">
+                    Power BI Integration • Customizing Applications
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- PowerShell -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Automation &amp; Administration
+                </span>
+
+                <h3>PowerShell</h3>
+
+                <p class="tech-description">
+                    Scripting • Windows Administration
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- Python -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Academics &amp; Development
+                </span>
+
+                <h3>Python</h3>
+
+                <p class="tech-description">
+                    Application Development
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- Salesforce -->
+        <div class="hero-slide tech-slide">
+            <div class="tech-copy">
+
+                <span class="tech-category">
+                    Business Application
+                </span>
+
+                <h3>Salesforce</h3>
+
+                <p class="tech-description">
+                    RMA • Inventory Management
+                </p>
+
+            </div>
+        </div>
+
+
+    </div> <!-- hero-slideshow -->
+
+</div> <!-- hero-technology-panel -->
+</section>
+
+
+
+<!-- =========================
+     WORK
+========================= -->
+
+<section id="work" class="section">
+
+    <div class="page-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Selected experience
+            </span>
+
+            <h2>Work</h2>
+
+            <p>
+                Explore professional experience and technical projects
+                demonstrating my work across hardware, cybersecurity,
+                networking, and software.
+            </p>
+
+        </div>
+
+
+        <div class="work-grid">
+
+
+            <!-- ELOTOUCH -->
+
+            <article class="work-card">
+
+                <div class="card-top">
+
+                    <span class="card-category">
+                        Professional Experience
+                    </span>
+
+                    <h3>EloTouch Solutions</h3>
+
+                    <p>
+                        Hardware diagnostics, repair, refurbishment,
+                        testing, quality assurance, and technical
+                        documentation performed as a Service Repair
+                        Technician.
+                    </p>
+
+                </div>
+
+                <div class="skill-list">
+                    <span>Hardware</span>
+                    <span>Troubleshooting</span>
+                    <span>Repair</span>
+                    <span>Quality Control</span>
+                </div>
+
+                <a
+                    href="{{ url_for('elotouch') }}"
+                    class="card-link"
+                >
+                    Explore EloTouch work
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </article>
+
+
+
+            <!-- EXTERNSHIP -->
+
+            <article class="work-card featured-card">
+
+                <div class="card-top">
+
+                    <span class="card-category">
+                        Cybersecurity
+                    </span>
+
+                    <h3>Hydroficient Externship</h3>
+
+                    <p>
+                        IoT cyber-defense work involving threat modeling,
+                        Python, MQTT, TLS, attack simulation, security
+                        analysis, and technical presentations.
+                    </p>
+
+                </div>
+
+                <div class="skill-list">
+                    <span>IoT Security</span>
+                    <span>Python</span>
+                    <span>MQTT</span>
+                    <span>Threat Modeling</span>
+                </div>
+
+                <a
+                    href="{{ url_for('externship') }}"
+                    class="card-link"
+                >
+                    Explore Externship
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </article>
+
+
+
+            <!-- HOME LAB -->
+
+            <article class="work-card">
+
+                <div class="card-top">
+
+                    <span class="card-category">
+                        Home Lab
+                    </span>
+
+                    <h3>Networking, Cybersecurity and Software Home Lab</h3>
+
+                    <p>
+                        A simulated enterprise environment for practicing
+                        Active Directory, networking, security monitoring,
+                        troubleshooting, and defensive cybersecurity. Also,
+                        a section showcasing my home-made applications.
+                    </p>
+
+                </div>
+
+                <div class="skill-list">
+                    <span>Active Directory</span>
+                    <span>Networking</span>
+                    <span>Windows Server</span>
+                    <span>Cybersecurity</span>
+                     <span>Software Development</span>
+                </div>
+
+                <a
+                    href="{{ url_for('home_lab') }}"
+                    class="card-link"
+                >
+                    Explore the lab
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
 
 </section>
 
-<section class="features">
 
-    <div class="card">
-        <h2>Python</h2>
-        <p>Interactive Python applications built with Flask.</p>
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about" class="section about-section">
+
+    <div class="page-container about-grid">
+
+        <div>
+
+            <span class="eyebrow">
+                About me
+            </span>
+
+            <h2>
+                Building toward a career in cybersecurity.
+            </h2>
+
+        </div>
+
+
+        <div class="about-copy">
+
+            <p>
+                I enjoy understanding how systems work from the physical
+                hardware level through networking, operating systems,
+                applications, and security controls.
+            </p>
+
+        
+
+    <div class="credential-heading">
+
+        <h3>Education</h3>
+
     </div>
 
-    <div class="card">
-        <h2>AWS</h2>
-        <p>Cloud-hosted applications running on Amazon EC2.</p>
-    </div>
-    <a href="/cybersecurity" class="card-link">
-    <div class="card">
-        <h2>Cybersecurity</h2>
-        <p>Projects demonstrating networking and security concepts.</p>
-    </div>
+
+<p class="education-program">
+    <a
+        href="https://www.pstcc.edu/academics/areas-of-study/cit/cyber-defense/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="education-program-link"
+    >
+        Associate of Applied Science — Computer Information Technology,
+        Cyber Defense Concentration (Graduating in 2028)
     </a>
+</p>
+
+
+    <div class="credential-grid">
+
+        <!-- Credly verification -->
+        <div class="credly-card">
+
+            <div class="credly-heading">
+                <h3>
+                    Certifications
+                </h3>
+            </div>
+
+
+            <div class="credly-badge-wrapper">
+
+                <div
+                    data-iframe-width="150"
+                    data-iframe-height="270"
+                    data-share-badge-id="5dccfa4b-445a-48f1-b4b0-b09cdbcca092"
+                    data-share-badge-host="https://www.credly.com">
+                </div>
+                <div 
+                    data-iframe-width="150" 
+                    data-iframe-height="270" 
+                    data-share-badge-id="d4d74d1e-18bc-4b53-b953-fefa4cdb4b4f" 
+                    data-share-badge-host="https://www.credly.com">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Non-credly Certs -->
+          <iframe
+                class="custom-credential-frame"
+                src="{{ url_for('hydroficient_credential') }}"
+                width="150"
+                height="270"
+                title="Hydroficient IoT Cyber Defense Externship Top Performer Certificate"
+                loading="lazy">
+            </iframe>
+
+        
+
+    </div>
+
+</div>
+
+<script
+    type="text/javascript"
+    async
+    src="https://cdn.credly.com/assets/utilities/embed.js">
+</script>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const slideshow = document.querySelector(".hero-slideshow");
+    const slides = document.querySelectorAll(".hero-slide");
+    const images = document.querySelectorAll(".hero-slide img");
+
+    if (!slideshow || slides.length === 0) {
+        return;
+    }
+
+    /*
+     * Wait until every slideshow image has loaded/decoded
+     * before starting the first rotation.
+     */
+    const imagePromises = Array.from(images).map((img) => {
+
+        if (img.complete) {
+            return img.decode().catch(() => {});
+        }
+
+        return new Promise((resolve) => {
+            img.addEventListener("load", resolve, { once: true });
+            img.addEventListener("error", resolve, { once: true });
+        });
+
+    });
+
+    await Promise.all(imagePromises);
+
+    let currentSlide = 0;
+
+    /*
+     * Make absolutely sure only the first slide starts active.
+     */
+    slides.forEach((slide, index) => {
+        slide.classList.toggle("active", index === 0);
+    });
+
+    setInterval(function () {
+
+        slides[currentSlide].classList.remove("active");
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.add("active");
+
+    }, 3000);
+
+});
+</script>
 
 {% endblock %}

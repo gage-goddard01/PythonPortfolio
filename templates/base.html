@@ -3,32 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Gage Goddard | Python Portfolio{% endblock %}</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %}Gage | Cybersecurity Portfolio{% endblock %}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
 </head>
 
 <body>
 
-<nav>
-    <h2>Gage Goddard</h2>
+<header class="site-header">
+    <div class="nav-container">
 
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-    </ul>
-</nav>
+        <a href="{{ url_for('home') }}" class="brand">
+            <span class="brand-mark">G</span>
+            <span>Gage Goddard</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="{{ url_for('home') }}#home">Home</a>
+            <a href="{{ url_for('home') }}#work">Work</a>
+            <a href="{{ url_for('home') }}#about">About</a>
+        </nav>
+
+    </div>
+</header>
+
 
 <main>
-
-{% block content %}
-
-{% endblock %}
-
+    {% block content %}
+    {% endblock %}
 </main>
+
+<footer class="site-footer">
+    <div class="page-container">
+
+        <strong>Gage</strong>
+        <p>Cybersecurity • Networking • Hardware • Python</p>
+
+        <p class="copyright">
+            © 2026 Gage. All rights reserved.
+        </p>
+
+        <details class="legal-attribution">
+            <summary>Trademark &amp; attribution information</summary>
+
+            <div class="legal-attribution-content">
+
+                <p>
+                    Third-party trademarks, product names, logos, and brands
+                    are the property of their respective owners. References
+                    on this site identify technologies, certifications, and
+                    platforms with which I have experience and do not imply
+                    sponsorship, affiliation, or endorsement.
+                </p>
+
+                <p>
+                    Python and the Python logo are trademarks of the Python
+                    Software Foundation. This site is not affiliated with or
+                    endorsed by the Python Software Foundation.
+                </p>
+
+                <p>
+                    CompTIA and Network+ are trademarks of CompTIA, Inc.
+                    The Network+ certification logo is used to identify a
+                    credential earned by the site owner.
+                </p>
+
+                <p>
+                    Android is a trademark of Google LLC. Android robot
+                    artwork is based on work created and shared by Google
+                    and is used under the Creative Commons Attribution 3.0
+                    License.
+                </p>
+                
+                <p>
+                    Elo, Zebra, and related product names are trademarks of their 
+                    respective owners. Product references are used solely to 
+                    identify hardware with which I have professional repair 
+                    experience and do not imply sponsorship or endorsement.
+                </p>
+    
+                <p>
+                    HTML5 Logo by W3C, used under the Creative Commons
+                    Attribution 3.0 License.
+                </p>
+
+                <p>
+                    Tux was created by Larry Ewing. Linux® is the registered
+                    trademark of Linus Torvalds in the U.S. and other countries.
+                </p>
+
+                <p>
+                    Microsoft, Microsoft Office, Microsoft Dynamics 365, and
+                    PowerShell are trademarks of the Microsoft group of
+                    companies.
+                </p>
+
+                <p>
+                    Salesforce is a trademark of Salesforce, Inc.
+                </p>
+
+            </div>
+        </details>
+
+    </div>
+</footer>
 
 </body>
 </html>

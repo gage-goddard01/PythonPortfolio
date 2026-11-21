@@ -1,0 +1,446 @@
+{% extends "base.html" %}
+
+{% block title %}
+Hydroficient IoT Cyber Defense Externship | Gage
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="project-hero">
+
+    <div class="page-container project-hero-content">
+
+        <a
+            href="{{ url_for('home') }}#work"
+            class="back-link"
+        >
+            ← Back to Work
+        </a>
+
+        <span class="eyebrow">
+            Hydroficient • IoT Cyber Defense
+        </span>
+
+        <h1>
+            Hydroficient IoT Cyber Defense Externship
+        </h1>
+
+        <p class="project-lead">
+            Hands-on cybersecurity work focused on analyzing,
+            attacking, and defending an IoT-based water monitoring
+            environment.
+        </p>
+
+
+        <div class="skill-list hero-skills">
+            <span>Python</span>
+            <span>MQTT</span>
+            <span>TLS</span>
+            <span>Threat Modeling</span>
+            <span>IoT Security</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="section">
+
+    <div class="project-container">
+
+        <div class="project-introduction">
+
+            <span class="eyebrow">
+                Overview
+            </span>
+
+            <h2>
+                From threat modeling to a defended IoT pipeline.
+            </h2>
+
+            <p>
+                The externship involved analyzing an IoT water-management
+                environment, understanding potential attacks, developing
+                Python tooling, experimenting with MQTT security controls,
+                and communicating technical findings.
+            </p>
+
+        </div>
+
+
+        <div class="accomplishment-panel">
+
+            <span class="eyebrow">
+                What I accomplished
+            </span>
+
+            <p>
+                I developed security assessments, Python tooling,
+                threat models, MQTT experiments, defensive controls,
+                and presentations documenting the security implications
+                of the system.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PROJECT BREAKDOWN -->
+
+<section class="section project-breakdown">
+
+    <div class="project-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Project breakdown
+            </span>
+
+            <h2>
+                Explore the work
+            </h2>
+
+            <p>
+                Expand any section to inspect the associated technical
+                work without cluttering the page.
+            </p>
+
+        </div>
+
+
+
+        <!-- PROJECT 1 -->
+
+        <details class="project-detail">
+
+            <summary>
+
+                <div>
+                    <span class="project-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Understanding IoT Systems & Threat Modeling
+                    </h3>
+                </div>
+
+                <span class="expand-icon">
+                    +
+                </span>
+
+            </summary>
+
+
+            <div class="project-detail-content">
+
+                <p>
+                    Developed a structured threat model for an IoT
+                    water-monitoring environment, identifying assets,
+                    attack surfaces, trust boundaries, and potential
+                    threats.
+                </p>
+
+
+                <div class="artifact-grid">
+
+                    <a
+                        class="artifact-card"
+                        href="https://docs.google.com/document/d/19ZMouhHXhUxhDbxcbAk-vdAN1hp_Ld2y2CxWRDa82Q0/edit?usp=sharing"
+                        target="_blank"
+                    >
+                        <span>Document</span>
+                        <strong>Threat Model</strong>
+                        <small>Open Document ↗</small>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <details class="project-detail">
+
+            <summary>
+
+                <div>
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Python for IoT Security
+                    </h3>
+                </div>
+
+                <span class="expand-icon">
+                    +
+                </span>
+
+            </summary>
+
+
+            <div class="project-detail-content">
+
+                <p>
+                    Used Python to process IoT-style data, manipulate
+                    structured information, and generate simulated sensor
+                    data for security testing.
+                </p>
+
+
+                <div class="artifact-grid">
+
+                    <a
+                        class="artifact-card"
+                        href="#"
+                    >
+                        <span>Notebook</span>
+                        <strong>Python Sensor Generator</strong>
+                        <a
+                            href="{{ url_for('mqtt_demo') }}"
+                        >
+                            Launch interactive demo ↗
+                        </a>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <details class="project-detail">
+
+            <summary>
+
+                <div>
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Building an Insecure MQTT Pipeline
+                    </h3>
+                </div>
+
+                <span class="expand-icon">
+                    +
+                </span>
+
+            </summary>
+
+
+            <div class="project-detail-content">
+
+                <p>
+                    Built and analyzed MQTT message flows to understand
+                    how insecure IoT communication can expose operational
+                    data and system controls.
+                </p>
+
+            </div>
+
+        </details>
+
+
+
+        <!-- PROJECT 4 -->
+
+        <details class="project-detail">
+
+            <summary>
+
+                <div>
+                    <span class="project-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Securing the Pipeline with TLS
+                    </h3>
+                </div>
+
+                <span class="expand-icon">
+                    +
+                </span>
+
+            </summary>
+
+
+            <div class="project-detail-content">
+
+                <p>
+                    Evaluated the security and performance implications
+                    of protecting MQTT communications with TLS.
+                </p>
+
+
+                <div class="artifact-grid">
+
+                    <a
+                        class="artifact-card"
+                        href="/static/documents/externship/tls-assessment.pdf"
+                        target="_blank"
+                    >
+                        <span>Report</span>
+                        <strong>TLS Security Assessment</strong>
+                        <small>Open PDF ↗</small>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+
+        <!-- PROJECT 5 -->
+
+        <details class="project-detail">
+
+            <summary>
+
+                <div>
+                    <span class="project-number">
+                        05
+                    </span>
+
+                    <h3>
+                        Device Identity & Mutual TLS
+                    </h3>
+                </div>
+
+                <span class="expand-icon">
+                    +
+                </span>
+
+            </summary>
+
+
+            <div class="project-detail-content">
+
+                <p>
+                    Investigated why server-only TLS does not authenticate
+                    individual IoT devices and how mutual TLS can establish
+                    device identity.
+                </p>
+
+            </div>
+
+        </details>
+
+
+
+        <!-- PROJECT 6 -->
+
+        <details class="project-detail">
+
+            <summary>
+
+                <div>
+                    <span class="project-number">
+                        06
+                    </span>
+
+                    <h3>
+                        Defeating Replay Attacks
+                    </h3>
+                </div>
+
+                <span class="expand-icon">
+                    +
+                </span>
+
+            </summary>
+
+
+            <div class="project-detail-content">
+
+                <p>
+                    Compared defensive strategies for detecting and
+                    mitigating replay attacks against IoT messaging.
+                </p>
+
+            </div>
+
+        </details>
+
+
+
+        <!-- PROJECT 7 -->
+
+        <details class="project-detail">
+
+            <summary>
+
+                <div>
+                    <span class="project-number">
+                        07
+                    </span>
+
+                    <h3>
+                        Real-Time Security Dashboard
+                    </h3>
+                </div>
+
+                <span class="expand-icon">
+                    +
+                </span>
+
+            </summary>
+
+
+            <div class="project-detail-content">
+
+                <p>
+                    Brought the security analysis together into a final
+                    presentation and dashboard demonstrating the defended
+                    environment.
+                </p>
+
+
+                <div class="artifact-grid">
+
+                    <a
+                        class="artifact-card"
+                        href="/static/documents/externship/final-presentation.pdf"
+                        target="_blank"
+                    >
+                        <span>Presentation</span>
+                        <strong>Final Security Presentation</strong>
+                        <small>Open presentation ↗</small>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
